@@ -50,6 +50,7 @@ import static com.android.internal.util.cm.PowerMenuConstants.GLOBAL_ACTION_KEY_
 import static com.android.internal.util.cm.PowerMenuConstants.GLOBAL_ACTION_KEY_USERS;
 import static com.android.internal.util.cm.PowerMenuConstants.GLOBAL_ACTION_KEY_VOICEASSIST;
 import static com.android.internal.util.cm.PowerMenuConstants.GLOBAL_ACTION_KEY_SCREENRECORD;
+import static com.android.internal.util.cm.PowerMenuConstants.POWER_MENU_ONTHEGO_ENABLED;
 
 public class PowerMenuActions extends SettingsPreferenceFragment {
     final static String TAG = "PowerMenuActions";
@@ -57,6 +58,7 @@ public class PowerMenuActions extends SettingsPreferenceFragment {
     private CheckBoxPreference mRebootPref;
     private CheckBoxPreference mScreenshotPref;
     private CheckBoxPreference mScreenRecordPref;
+    private CheckBoxPreference mOnTheGoPowerMenu;
     private CheckBoxPreference mAirplanePref;
     private CheckBoxPreference mUsersPref;
     private CheckBoxPreference mSettingsPref;
@@ -95,6 +97,8 @@ public class PowerMenuActions extends SettingsPreferenceFragment {
                 mScreenshotPref = (CheckBoxPreference) findPreference(GLOBAL_ACTION_KEY_SCREENSHOT);
 	    } else if (action.equals(GLOBAL_ACTION_KEY_SCREENRECORD)) {
                 mScreenRecordPref = (CheckBoxPreference) findPreference(GLOBAL_ACTION_KEY_SCREENRECORD);
+            } else if (action.equals(POWER_MENU_ONTHEGO_ENABLED)) {
+                mScreenRecordPref = (CheckBoxPreference) findPreference(POWER_MENU_ONTHEGO_ENABLED);
             } else if (action.equals(GLOBAL_ACTION_KEY_AIRPLANE)) {
                 mAirplanePref = (CheckBoxPreference) findPreference(GLOBAL_ACTION_KEY_AIRPLANE);
             } else if (action.equals(GLOBAL_ACTION_KEY_USERS)) {
@@ -131,6 +135,10 @@ public class PowerMenuActions extends SettingsPreferenceFragment {
 
 	if (mScreenRecordPref != null) {
             mScreenRecordPref.setChecked(settingsArrayContains(GLOBAL_ACTION_KEY_SCREENRECORD));
+        }
+
+       if (mOnTheGoPowerMenu != null) {
+            mOnTheGoPowerMenu.setChecked(settingsArrayContains(POWER_MENU_ONTHEGO_ENABLED));
         }
 
         if (mAirplanePref != null) {
@@ -198,6 +206,10 @@ public class PowerMenuActions extends SettingsPreferenceFragment {
 	} else if (preference == mScreenRecordPref) {
             value = mScreenRecordPref.isChecked();
             updateUserConfig(value, GLOBAL_ACTION_KEY_SCREENRECORD);
+
+        } else if (preference == mOnTheGoPowerMenu) {
+            value = mOnTheGoPowerMenu.isChecked();
+            updateUserConfig(value, POWER_MENU_ONTHEGO_ENABLED);
 
         } else if (preference == mAirplanePref) {
             value = mAirplanePref.isChecked();
