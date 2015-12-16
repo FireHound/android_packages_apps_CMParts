@@ -49,11 +49,15 @@ import static com.android.internal.util.cm.PowerMenuConstants.GLOBAL_ACTION_KEY_
 import static com.android.internal.util.cm.PowerMenuConstants.GLOBAL_ACTION_KEY_USERS;
 import static com.android.internal.util.cm.PowerMenuConstants.GLOBAL_ACTION_KEY_VOICEASSIST;
 
+import static com.android.internal.util.cm.PowerMenuConstants.GLOBAL_ACTION_KEY_TORCH;
+import static com.android.internal.util.cm.PowerMenuConstants.GLOBAL_ACTION_KEY_SCREENRECORD;
+
 public class PowerMenuActions extends SettingsPreferenceFragment {
     final static String TAG = "PowerMenuActions";
 
     private CheckBoxPreference mRebootPref;
     private CheckBoxPreference mScreenshotPref;
+    private CheckBoxPreference mScreenRecordPref;
     private CheckBoxPreference mAirplanePref;
     private CheckBoxPreference mUsersPref;
     private CheckBoxPreference mSettingsPref;
@@ -90,6 +94,8 @@ public class PowerMenuActions extends SettingsPreferenceFragment {
                 mRebootPref = (CheckBoxPreference) findPreference(GLOBAL_ACTION_KEY_REBOOT);
             } else if (action.equals(GLOBAL_ACTION_KEY_SCREENSHOT)) {
                 mScreenshotPref = (CheckBoxPreference) findPreference(GLOBAL_ACTION_KEY_SCREENSHOT);
+	    } else if (action.equals(GLOBAL_ACTION_KEY_SCREENRECORD)) {
+                mScreenRecordPref = (CheckBoxPreference) findPreference(GLOBAL_ACTION_KEY_SCREENRECORD);
             } else if (action.equals(GLOBAL_ACTION_KEY_AIRPLANE)) {
                 mAirplanePref = (CheckBoxPreference) findPreference(GLOBAL_ACTION_KEY_AIRPLANE);
             } else if (action.equals(GLOBAL_ACTION_KEY_USERS)) {
@@ -122,6 +128,10 @@ public class PowerMenuActions extends SettingsPreferenceFragment {
 
         if (mScreenshotPref != null) {
             mScreenshotPref.setChecked(settingsArrayContains(GLOBAL_ACTION_KEY_SCREENSHOT));
+        }
+
+	if (mScreenRecordPref != null) {
+            mScreenRecordPref.setChecked(settingsArrayContains(GLOBAL_ACTION_KEY_SCREENRECORD));
         }
 
         if (mAirplanePref != null) {
@@ -185,7 +195,9 @@ public class PowerMenuActions extends SettingsPreferenceFragment {
         } else if (preference == mScreenshotPref) {
             value = mScreenshotPref.isChecked();
             updateUserConfig(value, GLOBAL_ACTION_KEY_SCREENSHOT);
-
+	} else if (preference == mScreenRecordPref) {
+            value = mScreenRecordPref.isChecked();
+            updateUserConfig(value, GLOBAL_ACTION_KEY_SCREENRECORD);
         } else if (preference == mAirplanePref) {
             value = mAirplanePref.isChecked();
             updateUserConfig(value, GLOBAL_ACTION_KEY_AIRPLANE);
