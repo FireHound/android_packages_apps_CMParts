@@ -31,6 +31,7 @@ import com.android.internal.util.cm.PowerMenuConstants;
 
 import org.cyanogenmod.cmparts.R;
 import org.cyanogenmod.cmparts.SettingsPreferenceFragment;
+import org.cyanogenmod.cmparts.utils.DeviceUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -48,8 +49,6 @@ import static com.android.internal.util.cm.PowerMenuConstants.GLOBAL_ACTION_KEY_
 import static com.android.internal.util.cm.PowerMenuConstants.GLOBAL_ACTION_KEY_SILENT;
 import static com.android.internal.util.cm.PowerMenuConstants.GLOBAL_ACTION_KEY_USERS;
 import static com.android.internal.util.cm.PowerMenuConstants.GLOBAL_ACTION_KEY_VOICEASSIST;
-
-import static com.android.internal.util.cm.PowerMenuConstants.GLOBAL_ACTION_KEY_TORCH;
 import static com.android.internal.util.cm.PowerMenuConstants.GLOBAL_ACTION_KEY_SCREENRECORD;
 
 public class PowerMenuActions extends SettingsPreferenceFragment {
@@ -195,9 +194,11 @@ public class PowerMenuActions extends SettingsPreferenceFragment {
         } else if (preference == mScreenshotPref) {
             value = mScreenshotPref.isChecked();
             updateUserConfig(value, GLOBAL_ACTION_KEY_SCREENSHOT);
+
 	} else if (preference == mScreenRecordPref) {
             value = mScreenRecordPref.isChecked();
             updateUserConfig(value, GLOBAL_ACTION_KEY_SCREENRECORD);
+
         } else if (preference == mAirplanePref) {
             value = mAirplanePref.isChecked();
             updateUserConfig(value, GLOBAL_ACTION_KEY_AIRPLANE);
