@@ -165,11 +165,7 @@ public class PartsActivity extends SettingsDrawerActivity implements
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-<<<<<<< HEAD
-        if (item.getItemId() == android.R.id.home) {
-=======
         if (item.getItemId() == android.R.id.home && mHomeAsUp) {
->>>>>>> b63cd66ef479c9639debe2dfeee8181ccd6450b9
             onBackPressed();
             return true;
         }
