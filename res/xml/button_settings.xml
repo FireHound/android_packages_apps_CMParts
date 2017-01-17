@@ -24,6 +24,12 @@
         android:summary="@string/disable_navkeys_summary"
         android:defaultValue="false" />
 
+    <SwitchPreference
+        android:key="one_handed_mode_ui"
+        android:title="@string/one_handed_mode_title"
+        android:summary="@string/one_handed_mode_summary"
+        android:defaultValue="false" />
+
     <org.cyanogenmod.cmparts.input.ButtonBacklightBrightness
         android:key="button_backlight"
         android:title="@string/button_backlight_title"
