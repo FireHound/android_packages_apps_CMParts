@@ -98,7 +98,7 @@ public class PowerMenuActions extends SettingsPreferenceFragment {
 	    } else if (action.equals(GLOBAL_ACTION_KEY_SCREENRECORD)) {
                 mScreenRecordPref = (CheckBoxPreference) findPreference(GLOBAL_ACTION_KEY_SCREENRECORD);
             } else if (action.equals(POWER_MENU_ONTHEGO_ENABLED)) {
-                mScreenRecordPref = (CheckBoxPreference) findPreference(POWER_MENU_ONTHEGO_ENABLED);
+                mOnTheGoPowerMenu = (CheckBoxPreference) findPreference(POWER_MENU_ONTHEGO_ENABLED);
             } else if (action.equals(GLOBAL_ACTION_KEY_AIRPLANE)) {
                 mAirplanePref = (CheckBoxPreference) findPreference(GLOBAL_ACTION_KEY_AIRPLANE);
             } else if (action.equals(GLOBAL_ACTION_KEY_USERS)) {
